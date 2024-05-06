@@ -1,6 +1,6 @@
 name: Unit Tests # name of the test
 
-on: [pull_request] # the Github Action will activate "on" the event that you "push" to the repo
+on: [push] # the Github Action will activate "on" the event that you "push" to the repo
 
 jobs: # the things being executed
   tests: # the name of your status check, will become important when you do branch protection
@@ -9,6 +9,7 @@ jobs: # the things being executed
       - uses: actions/checkout@v4 # using version 4 of Actions
       - name: Install Dependencies
         run: npm install
-      - name: Unit Test
+      - name: Sum Test
         run: npm test ./__tests__/sum.test.js # the actual testing line
+      - name: Unit Test
         run: npm test ./__tests__/unit.test.js
